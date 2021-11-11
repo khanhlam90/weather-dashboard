@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <header class="m-5 text-center">
+        <h1>Weather Dashboard</h1>
+    </header>
+
+    <div class="row mx-2">
+        <!-- left search bar column-->
+        <div id="left-container" class="col-12 col-md-3">
+            
+            <div class="col-12">
+                <!-- search bar title-->
+                <h2 class="col-12"> Search for a City:</h2>
+
+                <!-- search bar form-->
+                <form id="search-form" class="form-body col-12">
+                    <!-- to input a city-->
+                    <input name="city-input" id="city-input" type="text" autofocus="true" class="form-input col-12 my-2" placeholder="San Jose"/>
+                    <!-- search button-->
+                    <button type="submit" class="btn btn-primary col-12 my-2">Search</button>
+                    <!-- clear old search result-->
+                    <button type="submit" class="btn btn-secondary col-12 my-2">Clear History</button>
+                </form>
+            </div>
+
+            <!-- search results - to be in js-->
+            <div id="search-history" class="search-result mt-2 col-12 border border-top">
+            </div>
+
+        </div>
+        
+
+        <!-- search result -->
+        <div id="right-container" class="col-12 col-md-9">
+            <!-- main display for today-weather - to be appended-->
+            <div id="today-weather" class="col-12 border border-dark ">
+                <h2 id="city-name">placeholder - San Jose (Today's Date)</h2>
+            </div>
+
+            <!-- 5-day forecast weather - to be appended-->
+            <div id="5day-forecast" class="col-12">
+                <h3 id="forecast-title">placeholder - 5-day Forecast:</h3>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    
+
+    <!-- Jquery files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- Local js -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
