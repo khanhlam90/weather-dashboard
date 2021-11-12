@@ -16,7 +16,7 @@
         <h1>Weather Dashboard</h1>
     </header>
 
-    <div class="row mx-2">
+    <div class="row min-vh-100 no-gutters">
         <!-- left search bar column-->
         <div id="left-container" class="col-12 col-md-3">
             
@@ -25,18 +25,18 @@
                 <h2 class="col-12"> Search for a City:</h2>
 
                 <!-- search bar form-->
-                <form id="search-form" class="form-body col-12">
+                <form id="search-form" class="col-12 input-group input-group-lg">
                     <!-- to input a city-->
-                    <input name="city-input" id="city-input" type="text" autofocus="true" class="form-input col-12 my-2" placeholder="San Jose"/>
+                    <input id="city-input" class="form-control col-12 my-2" name="city-input" type="text" autofocus="true" placeholder="San Jose"/>
                     <!-- search button-->
-                    <button type="submit" class="btn btn-primary col-12 my-2">Search</button>
+                    <button id="search-btn" type="submit" class="btn btn-primary col-12 my-2">Search</button>
                     <!-- clear old search result-->
-                    <button type="submit" class="btn btn-secondary col-12 my-2">Clear History</button>
+                    <button id="clear-btn" type="button" class="btn btn-secondary col-12 my-2">Clear History</button>
                 </form>
             </div>
 
             <!-- search results - to be in js-->
-            <div id="search-history" class="search-result mt-2 col-12 border border-top">
+            <div id="search-history" class="mt-2 col-12 border border-top">
             </div>
 
         </div>
@@ -45,13 +45,13 @@
         <!-- search result -->
         <div id="right-container" class="col-12 col-md-9">
             <!-- main display for today-weather - to be appended-->
-            <div id="today-weather" class="col-12 border border-dark ">
-                <h2 id="city-name">placeholder - San Jose (Today's Date)</h2>
+            <div id="today-weather" class="col-12">
+                <h2 id="city-name"></h2>
             </div>
 
             <!-- 5-day forecast weather - to be appended-->
-            <div id="5day-forecast" class="col-12">
-                <h3 id="forecast-title">placeholder - 5-day Forecast:</h3>
+            <div id="forecast-weather" class="col-12">
+                <h3 id="5day-forecast"></h3>
             </div>
 
         </div>
