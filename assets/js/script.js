@@ -8,10 +8,18 @@ var cityInputName = $("#city-input");
 
 // current day variable
 currentDay = moment().format("MM[/]DD[/]YYYY");
-console.log(currentDay);
+//console.log(currentDay);
 // variable for API keys
 var apiKey = "818c59d7f810b3a544e5b96a076c8332";
 
+// track the search count for local storage
+var searchCount = 0;
+// for loop to persit the search data into the search history
+for (var i=0; i<localStorage.length; i++) {
+    var getCity = localStorage.getItem(i);
+    searchResult.append("<li class='search-item mt-2 col-12'>" + getCity + "</li>");
+
+};
 
 
 //search button click event
@@ -30,7 +38,6 @@ searchBtn.on("click", function(event) {
         //clear old content
         cityInputName.value = "";
 
-        
     } else {
         alert("Invalid! Please enter a city.");
     }
@@ -40,11 +47,11 @@ searchBtn.on("click", function(event) {
 var getWeatherData = function (city) {
 
     // format the openweathermap api url for current weather:
-    currentUrl = "api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=imperial";
+    currentUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=imperial";
     console.log(currentUrl);
     // format the openweathermap api url for 5-day forcast weather
-    forecastUrl = "api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey + "&units=imperial";
-    console.log(forecastUrl);
+    forecastUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey + "&units=imperial";
+    //console.log(forecastUrl);
 
     // clear old data
     todayWeather.empty();
@@ -53,13 +60,19 @@ var getWeatherData = function (city) {
     //make a get request to url
     fetch(currentUrl).then(function(response) {
             response.json().then(function(data){
-                displayCurrentWeather (data, city);
-                console.log(data);
+                displayCurrentWeather (data);
+                //console.log(data);
             });
         });
 };
 
-var displayCurrentWeather = function(data, city) {
-    console.log(data);
-    console.log(city);
+var displayCurrentWeather = function(data) {
+    //console.log(data);
+    
+    //Append h2 city name with id to the main display container: 
+    todayWeather.append("<h2 id='city-name'>" + data.name + " (" + currentDay + ") " + "<img src='https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png'></h2>");
+        // set local storage
+        var searchStorage = localStorage.setItem(searchCount, data.name);
+        searchCount = searchCount + 1;
+
 }

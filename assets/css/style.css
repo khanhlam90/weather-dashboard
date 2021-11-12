@@ -1,0 +1,9 @@
+#city-name {
+    font-weight: bold;
+}
+
+.search-item {
+   list-style: none;
+   background-color: silver;
+   text-align: center;
+}
