@@ -16,18 +16,16 @@
 * Moment.js
 * Third-party API
 
-
 ## Website
-https://khanhlam90.github.io/work-day-scheduler/
+https://khanhlam90.github.io/weather-dashboard/
 
 ## Contribution
-Self-Built and online-research (such as https://stackoverflow.com/ and https://www.w3schools.com/)
+
+* Self-Built and online-research (such as https://stackoverflow.com/ and https://www.w3schools.com/)
 
 ## Screenshots demonstrate the web application's appearance and functionality:
 ![Screenshot-01](./assets/images/ss1.png)
-![Screenshot-02](./assets/images/ss2.png)
 
 ### Notes
-* Sample screenshots above demonstrate the landing page and its functions. In addition, the time block features show different colors for the past, present, and future time.
-* Some events are created for demonstration purpose.
+* Sample screenshots above demonstrate the landing page and its functions.
 

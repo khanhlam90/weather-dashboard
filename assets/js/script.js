@@ -135,7 +135,14 @@ var displayCurrentWeather = function(data) {
     fetch(uvIndexUrl).then(function(response){
         response.json().then(function(uvData){
            //console.log(uvData.current.uvi);
-           todayWeather.append("<p class='displayMain'>UV Index: " + "<span class = 'badge badge-success'>" + uvData.current.uvi + "</span>");
+            if (uvData.current.uvi < 3) {
+                todayWeather.append("<p class='displayMain'>UV Index: " + "<span class = 'badge badge-success'>" + uvData.current.uvi + "</span>");
+            }
+            else if (uvData.current.uvi >= 3 && uvData.current.uvi < 6) {
+                todayWeather.append("<p class='displayMain'>UV Index: " + "<span class = 'badge badge-warning'>" + uvData.current.uvi + "</span>");
+            } else if (uvData.current.uvi > 6) {
+                todayWeather.append("<p class='displayMain'>UV Index: " + "<span class = 'badge badge-danger'>" + uvData.current.uvi + "</span>");
+            };          
         }
     )});           
 };
