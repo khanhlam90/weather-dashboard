@@ -7,6 +7,7 @@ var forecastWeather = $("#forecast-weather");
 var forecastTitle = $("#forecast-title");
 var cityInputName = $("#city-input");
 
+
 // current day variable
 currentDay = moment().format("MM[/]DD[/]YYYY");
 //console.log(currentDay);
@@ -20,10 +21,19 @@ var displayHistory = function(){
 // for loop to persit the search data into the search history
 for (var i=0; i<localStorage.length; i++) {
     var getCity = JSON.parse(localStorage.getItem(i));
-    searchResult.append("<button class='search-item mt-2 col-12'>" + getCity + "</button>");
+    searchResult.append("<p id='clickItem' class='search-item mt-2 col-12'>" + getCity + "</p>");
     
 }
 };
+
+//click event to get city name from the search history bar:
+$("#search-history").on("click", "p", (function() {
+    var cityNameOnClick = $(this).text().trim();
+    //console.log(cityNameOnClick);
+
+    //pass the city name to getWeatherData
+    getWeatherData(cityNameOnClick);
+}));
 
 // track the search count for local storage
 var searchCount = 0;
@@ -76,7 +86,7 @@ var getWeatherData = function (city) {
                 
             });
         } else {
-            alert(city + " is not a city. Please enter a valid city name!")
+            alert(city + " is not a city!")
         }
         })
         .catch (function(error) {
@@ -92,11 +102,13 @@ var getWeatherData = function (city) {
                 
             });
         } else {
-            alert(city + " is not a city. Please enter a valid city name!")
+            alert("Please check the spelling and enter a valid city name!")
+            // clear old data
+            todayWeather.removeClass();            
         }
         })
         .catch (function(error) {
-            alert('Unable to connect to Weather App - Please check back later!');
+            alert('The internet connection might have caused the issues!');
         });
 };
 
@@ -151,7 +163,7 @@ var displayForecastWeather = function(forecastData) {
     // console.log(nextDay5);
    
     // create new div for each card forecast weather 
-    forecastTitle.append("<h3>5-Day Forecast:</h3>");
+    forecastTitle.append("<h3 class = 'mb-1'>5-Day Forecast:</h3>");
 
     //append nextday forecast for the next 5 days
     //day1
